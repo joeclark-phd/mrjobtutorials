@@ -35,9 +35,9 @@ class MRTopSenders(MRJob):
       
   def steps(self):
     return [ MRStep(mapper=self.mapper,reducer=self.sum_by_from),
-             MRStep(reducer=self.find_top_three)#
-             #MRStep(reducer=self.hillary_only) ]
-              ]
+             MRStep(reducer=self.find_top_three),
+             MRStep(reducer=self.hillary_only) ]
+
       
 if __name__ == '__main__':
     MRTopSenders.run()
