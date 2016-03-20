@@ -23,7 +23,7 @@ class MRTopSenders(MRJob):
     # This will allow the next step to sort the senders by number sent
     
   def find_top_three(self, to, counts):
-    topsenders = sorted(counts)[-3:]
+    topsenders = sorted(counts)[0:3]
     fromnames = [ ts[1] for ts in topsenders ]
     yield to, ",".join(fromnames)
     # output is "to","from1,from2,from3"
@@ -35,7 +35,7 @@ class MRTopSenders(MRJob):
       
   def steps(self):
     return [ MRStep(mapper=self.mapper,reducer=self.sum_by_from),
-             MRStep(reducer=self.find_top_three#
+             MRStep(reducer=self.find_top_three)#
              #MRStep(reducer=self.hillary_only) ]
               ]
       
