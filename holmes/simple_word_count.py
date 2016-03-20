@@ -13,7 +13,7 @@ class MRWordCount(MRJob):
     def reducer(self, word, counts):
         # send all (num_occurrences, word) pairs to the same reducer.
         # num_occurrences is so we can easily use Python's max() function.
-        yield None, (sum(counts), word)
+        yield word, sum(counts)
 
 
 if __name__ == '__main__':
