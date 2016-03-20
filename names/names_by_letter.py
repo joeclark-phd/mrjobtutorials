@@ -7,7 +7,7 @@ class MRNamesByLetter(MRJob):
 
   def mapper(self, key, record):
     splits = record.split(",")
-    yield splits[0][0], splits[2]
+    yield splits[0][0], int(splits[2])
     # output: first letter of name, # of births
     
   def reducer(self, letter, births):

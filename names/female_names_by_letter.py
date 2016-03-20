@@ -13,7 +13,7 @@ class MRFemaleNamesByLetter(MRJob):
   def count_by_letter(self, key, record):
     # input: ("F","name,count")
     splits = record.split(",")
-    yield splits[0][0], splits[1]
+    yield splits[0][0], int(splits[1])
     # output: first letter of name, # of births
     
   def sum_births(self, letter, births):
