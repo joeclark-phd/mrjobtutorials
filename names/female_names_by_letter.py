@@ -1,7 +1,7 @@
 from mrjob.job import MRJob
 
-# simple one-step map-reduce pipeline to calculate the total 
-# count of births grouped by the first letter of the name
+# two-step map-reduce pipeline to calculate the total 
+# count of female births grouped by the first letter of the name
 
 class MRFemaleNamesByLetter(MRJob):
 
